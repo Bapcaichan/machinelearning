@@ -1,2 +1,6 @@
+import pandas as pd
+import numpy as np
 
-print('hello world')
+df = pd.read_csv('dataset_traffic_accident_prediction1.csv')
+
+print(df.head(5))
