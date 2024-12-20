@@ -1,0 +1,125 @@
+[33mcommit e7f7ea3c30b3f3e9eb4804a15d4919a085ec0579[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Thanh <dodinhthanh2004@gmail.com>
+Date:   Thu Dec 19 13:49:27 2024 +0700
+
+    thay doi
+
+[33mcommit d40633daf80158356fec7df89446125050e9ca20[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: thanh1605 <148026037+thanh1605@users.noreply.github.com>
+Date:   Thu Dec 19 13:30:42 2024 +0700
+
+    del r
+
+[33mcommit 1987cbdd3f34510f204732a66ed720808481fb2c[m
+Author: thanh1605 <148026037+thanh1605@users.noreply.github.com>
+Date:   Thu Dec 19 13:30:23 2024 +0700
+
+    add r
+
+[33mcommit 47774ee3d40e4fbb5ea8f659de297dd62c6f35dc[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Thu Dec 19 00:37:22 2024 +0700
+
+    Cấu trúc cho 1 project tham khảo
+
+[33mcommit 47816d883d77901a9f8d1a4789ce0003ffa9b00d[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Thu Dec 19 00:25:58 2024 +0700
+
+    READMEPLEASE
+
+[33mcommit 423315776253094e3f4ed849782fdcabe567545c[m
+Author: thinh <rockybalboa1325@gmail.com>
+Date:   Wed Dec 18 23:18:34 2024 +0700
+
+    sua lai ham main
+
+[33mcommit 25409b6bed53e483336496f6283430075ff011c5[m
+Author: thinh <rockybalboa1325@gmail.com>
+Date:   Wed Dec 18 23:08:06 2024 +0700
+
+    thay doi file main
+
+[33mcommit 5b09f957c69c52d1b2361757a5a22f6ad882a8bc[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:39:39 2024 +0700
+
+    Delete .github/workflows/python-package.yml
+
+[33mcommit 04b7e4baeb8bb6789bdd91812ccdbb0b227e25e5[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:38:02 2024 +0700
+
+    Dữ liệu đầu ra dạng bảng
+
+[33mcommit cde6aba9b8e839d0af71b2f8ba4f90e54f9d7fe5[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:37:29 2024 +0700
+
+    dữ liệu đầu vào được làm sạch
+
+[33mcommit e65af6ec45387ad49ad86ca7a0fb8d0e1c7f0dc7[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:36:12 2024 +0700
+
+    add raw dataset
+
+[33mcommit 51c74b16071524aaa5d799e191d78f6caaa77d9e[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:35:38 2024 +0700
+
+    Rename svm_thu_cong.py to svm.py
+
+[33mcommit 0c35e50453bb23c5dc173b59ecdf3e958522c8fb[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:34:55 2024 +0700
+
+    Rename out.py to output.py
+
+[33mcommit 1d641100cdd34a97c00d095193a4aeab29e28ff5[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:34:31 2024 +0700
+
+    Create out.py
+    
+    Đầu ra thuật toán
+
+[33mcommit 85adef4c15074a8f68ed1cb614b05560bef355ee[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:33:54 2024 +0700
+
+    Create svm_thu_cong.py
+    
+    thuật toán support vector machine thủ công
+
+[33mcommit 6c9fef53102ebb01486b32768245953fdb6fd1bf[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:29:07 2024 +0700
+
+    Create python-package.yml
+
+[33mcommit 7ded4b1712648ee558b0f42458dc554e9f697479[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:27:54 2024 +0700
+
+    Create preprocess.py
+    
+    thêm file tiền xử lý
+
+[33mcommit 0e395df8c68043814995d962470dc91436602fee[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:24:40 2024 +0700
+
+    Add files via upload
+
+[33mcommit 8ce37891f1aeff8c2b6bad47fd8f82fcfbab0930[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Wed Dec 18 12:23:35 2024 +0700
+
+    Create main.py
+
+[33mcommit 38952dd604a45e6bfff1f2c4f5a7433f85adf0f4[m
+Author: Bapcaichan <120329362+Bapcaichan@users.noreply.github.com>
+Date:   Tue Dec 17 21:04:28 2024 +0700
+
+    Initial commit
