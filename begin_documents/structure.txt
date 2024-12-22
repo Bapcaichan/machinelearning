@@ -1,0 +1,36 @@
+project/
+│
+├── main.py                 # File chính, chạy toàn bộ pipeline
+├── README.md               # Hướng dẫn sử dụng dự án
+├── requirements.txt        # Danh sách thư viện cần thiết
+│
+├── data/                   # Thư mục chứa dữ liệu
+│   ├── raw/                # Dữ liệu thô chưa xử lý
+│   ├── processed/          # Dữ liệu đã được tiền xử lý
+│   ├── output/             # Dữ liệu đầu ra (kết quả phân lớp, báo cáo, v.v.)
+│   └── datasets.py         # Code để tải, đọc dữ liệu
+│
+├── preprocessing/          # Tiền xử lý dữ liệu
+│   ├── clean_data.py       # Xử lý missing values, normalize, v.v.
+│   ├── feature_engineering.py # Tạo đặc trưng, encoding
+│   └── scaler.pkl          # (Tùy chọn) Lưu scaler đã fit sẵn
+│
+├── models/                 # Xây dựng và lưu mô hình
+│   ├── algorithms.py       # Nơi chứa các mô hình (Logistic Regression, SVM, v.v.)
+│   ├── train_model.py      # Hàm train mô hình
+│   ├── evaluate.py         # Đánh giá mô hình
+│   └── saved_models/       # (Tùy chọn) Mô hình đã train (pickle, h5, v.v.)
+│
+├── utils/                  # Các hàm phụ trợ
+│   ├── logger.py           # Ghi log
+│   ├── visualizations.py   # Vẽ biểu đồ (Confusion Matrix, ROC, v.v.)
+│   └── helpers.py          # Hàm tiện ích (load config, v.v.)
+│
+├── tests/                  # Thư mục kiểm thử
+│   ├── test_preprocessing.py
+│   ├── test_models.py
+│   └── test_pipeline.py
+│
+└── configs/                # File cấu hình dự án
+    ├── config.yaml         # Tham số dự án (learning_rate, batch_size, v.v.)
+    └── paths.json          # Đường dẫn file (input, output)
