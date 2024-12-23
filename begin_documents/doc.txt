@@ -1,3 +1,6 @@
-
+link bao cao
 https://docs.google.com/document/d/1k4pQ3AW-ypBppzLA0X7ebkbG2nm5QEqpEnzuvdwcPIQ/edit?usp=sharing
+
+link du lieu
+https://www.kaggle.com/code/denkuznetz/traffic-accident-analytics-ml
 
