@@ -1,11 +1,12 @@
 # thinh
 import operator
-
+import csv
 import numpy as np
 import pandas as pd
 from ydata_profiling import ProfileReport
 
-df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
+# df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
+df = pd.read_csv(r'C:\Users\ADMIN\Documents\VScode\Python\github\machinelearning\data\dataset_traffic_accident_prediction1.csv')
 
 df1 = df.drop(["Accident_Severity"], axis =1 )
 
@@ -38,3 +39,6 @@ df3 = df.drop_duplicates()
 
 # profile = ProfileReport(df3, title="Traffic accident", explorative=True)
 # profile.to_file("Traffic.html")
+
+with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
+writer.writerows(df3)
