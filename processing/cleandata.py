@@ -5,8 +5,8 @@ import numpy as np
 import pandas as pd
 from ydata_profiling import ProfileReport
 
-# df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
-df = pd.read_csv(r'C:\Users\ADMIN\Documents\VScode\Python\github\machinelearning\data\dataset_traffic_accident_prediction1.csv')
+df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
+# df = pd.read_csv(r'C:\Users\ADMIN\Documents\VScode\Python\github\machinelearning\data\dataset_traffic_accident_prediction1.csv')
 
 df1 = df.drop(["Accident_Severity"], axis =1 )
 
