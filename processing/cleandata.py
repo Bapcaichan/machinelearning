@@ -52,6 +52,7 @@ df['Road_Light_Condition'] = df['Road_Light_Condition'].fillna(df['Road_Light_Co
 df.isnull().sum()
 
 
+
 #Kiểm tra bản ghi trùng lặp
 duplicates_count = df.duplicated().sum()
 print(f"Ban ghi trung lap: {duplicates_count}")
@@ -95,6 +96,7 @@ plt.show()
 cols = ['Speed_Limit', 'Number_of_Vehicles', 'Driver_Age', 'Driver_Experience']
 sns_plot = sns.pairplot(df[cols])
 plt.show()
+
 
 # with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
 # writer.writerows(df3)
