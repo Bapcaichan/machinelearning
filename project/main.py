@@ -110,18 +110,17 @@ X_scaled[numeric_columns] = scaler.fit_transform(X[numeric_columns])
 
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size = 0.33, random_state=100)
 
-rf_classifier = RandomForestClassifier()
+knn_classifier = KNeighborsClassifier()
 
-parametrs_fr = {'max_depth':[3, 5, 10],
-                'n_estimators':[150, 200, 300],
-                'min_samples_split': [2, 5, 10],
-                'min_samples_leaf': [1, 2, 4]}
+param_knn = {
+    'n_neighbors': range(1, 30),
+    'weights': ['uniform', 'distance'],
+    'algorithm': ['auto', 'ball_tree', 'kd_tree'],
+    'leaf_size': range(10, 50, 5)}
 
-grid_search_reg_forest3 = GridSearchCV(rf_classifier, parametrs_fr, cv = 5)
-
-grid_search_reg_forest3.fit(X_train, y_train)
-
-best_gs_rf = grid_search_reg_forest3.best_estimator_
-
-print('Score on train data = ', round(best_gs_rf.score(X_train, y_train), 4))
-print('Score on test data = ', round(best_gs_rf.score(X_test, y_test), 4))
+grid_search_knn = GridSearchCV(knn_classifier, param_knn, cv=5)
+grid_search_knn.fit(X_train, y_train)
+grid_search_knn.best_params_
+best_gs_knn = grid_search_knn.best_estimator_
+print('Score on train data = ', round(best_gs_knn.score(X_train, y_train), 4))
+print('Score on test data = ', round(best_gs_knn.score(X_test, y_test), 4))
