@@ -98,5 +98,17 @@ sns_plot = sns.pairplot(df[cols])
 plt.show()
 
 
+numeric_df = df.select_dtypes(include=['number'])
+spearman_corr = numeric_df.corr(method='spearman')
+
+#In ma trận tương quan
+print(spearman_corr)
+
+#Hiển thị biểu đồ tương quan
+plt.figure(figsize=(8, 7))
+sns.heatmap(spearman_corr, annot=True, fmt=".2f", cmap='coolwarm', cbar=True)
+plt.title('Spearman Correlation Matrix')
+plt.show()
+
 # with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
 # writer.writerows(df3)
