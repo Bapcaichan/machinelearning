@@ -49,6 +49,5 @@ df['Vehicle_Type'] = df['Vehicle_Type'].fillna(df['Vehicle_Type'].mode()[0])
 df['Road_Light_Condition'] = df['Road_Light_Condition'].fillna(df['Road_Light_Condition'].mode()[0])
 #Kiểm tra dữ liệu thiếu
 df.isnull().sum()
-
 # with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
 # writer.writerows(df3)
