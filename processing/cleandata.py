@@ -4,9 +4,10 @@ import csv
 import numpy as np
 import pandas as pd
 from ydata_profiling import ProfileReport
+import matplotlib.pyplot as plt
 
-df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
-# df = pd.read_csv(r'C:\Users\ADMIN\Documents\VScode\Python\github\machinelearning\data\dataset_traffic_accident_prediction1.csv')
+# df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
+df = pd.read_csv(r'C:\Users\ADMIN\Documents\VScode\Python\github\machinelearning\data\dataset_traffic_accident_prediction1.csv')
 
 
 
@@ -32,5 +33,5 @@ df['Driver_Alcohol'].fillna(df['Driver_Alcohol'].median(), inplace=True)
 df['Driver_Age'].fillna(df['Driver_Age'].median(), inplace=True)
 df['Driver_Experience'].fillna(df['Driver_Experience'].median(), inplace=True)
 df['Accident'].fillna(df['Accident'].median(), inplace=True)
-with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
-writer.writerows(df3)
+# with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
+# writer.writerows(df3)
