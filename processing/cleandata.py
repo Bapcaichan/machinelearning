@@ -6,6 +6,11 @@ import pandas as pd
 from ydata_profiling import ProfileReport
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.preprocessing import RobustScaler
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+
 
 # df = pd.read_csv('../data/dataset_traffic_accident_prediction1.csv')
 df = pd.read_csv(r'C:\Users\ADMIN\Documents\VScode\Python\github\machinelearning\data\dataset_traffic_accident_prediction1.csv')
@@ -110,5 +115,43 @@ sns.heatmap(spearman_corr, annot=True, fmt=".2f", cmap='coolwarm', cbar=True)
 plt.title('Spearman Correlation Matrix')
 plt.show()
 
+df = pd.get_dummies(df, columns=['Weather', 'Road_Type', 'Time_of_Day', 'Accident_Severity', 
+                                  'Road_Condition', 'Vehicle_Type', 'Road_Light_Condition'], drop_first=True)
+df['Age_vs_Experience'] = df['Driver_Age'] - df['Driver_Experience']
+df = df.drop(['Driver_Age', 'Driver_Experience'], axis = 1)
+
+
+
+X = df.drop(['Accident'], axis = 1)
+y = df['Accident']
+feature_names = X.columns
+
+
+numeric_columns = ['Speed_Limit', 'Number_of_Vehicles', 'Age_vs_Experience']
+
+scaler = RobustScaler()
+
+X_scaled = X.copy()
+X_scaled[numeric_columns] = scaler.fit_transform(X[numeric_columns])
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size = 0.33, random_state=100) 
+
+
+
+
 # with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
 # writer.writerows(df3)
+
+knn_classifier = KNeighborsClassifier()
+
+param_knn = {
+    'n_neighbors': range(1, 30),
+    'weights': ['uniform', 'distance'],
+    'algorithm': ['auto', 'ball_tree', 'kd_tree'],
+    'leaf_size': range(10, 50, 5)}
+
+grid_search_knn = GridSearchCV(knn_classifier, param_knn, cv=5)
+grid_search_knn.fit(X_train, y_train)
+grid_search_knn.best_params_
+best_gs_knn = grid_search_knn.best_estimator_
+print('Score on train data = ', round(best_gs_knn.score(X_train, y_train), 4))
+print('Score on test data = ', round(best_gs_knn.score(X_test, y_test), 4))
