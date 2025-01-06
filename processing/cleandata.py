@@ -33,5 +33,22 @@ df['Driver_Alcohol'].fillna(df['Driver_Alcohol'].median(), inplace=True)
 df['Driver_Age'].fillna(df['Driver_Age'].median(), inplace=True)
 df['Driver_Experience'].fillna(df['Driver_Experience'].median(), inplace=True)
 df['Accident'].fillna(df['Accident'].median(), inplace=True)
+
+
+
+#Kiểm tra dữ liệu
+columns_miss = df.columns[df.isnull().sum() > 0]
+
+#Xử lý dữ liệu thiếu bằng trung bình
+df['Weather'] = df['Weather'].fillna(df['Weather'].mode()[0])
+df['Road_Type'] = df['Road_Type'].fillna(df['Road_Type'].mode()[0])
+df['Time_of_Day'] = df['Time_of_Day'].fillna(df['Time_of_Day'].mode()[0])
+df['Accident_Severity'] = df['Accident_Severity'].fillna(df['Accident_Severity'].mode()[0])
+df['Road_Condition'] = df['Road_Condition'].fillna(df['Road_Condition'].mode()[0])
+df['Vehicle_Type'] = df['Vehicle_Type'].fillna(df['Vehicle_Type'].mode()[0])
+df['Road_Light_Condition'] = df['Road_Light_Condition'].fillna(df['Road_Light_Condition'].mode()[0])
+#Kiểm tra dữ liệu thiếu
+df.isnull().sum()
+
 # with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
 # writer.writerows(df3)
