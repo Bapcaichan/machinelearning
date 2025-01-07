@@ -137,7 +137,6 @@ scaler = RobustScaler()
 X_scaled = X.copy()
 X_scaled[numeric_columns] = scaler.fit_transform(X[numeric_columns])
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size = 0.33, random_state=100) 
-
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.33, random_state=100) 
 # Áp dụng SMOTE để oversampling lớp thiểu số 
 smote = SMOTE(random_state=42) 
@@ -150,48 +149,50 @@ print(f"Resampled training set shape: {X_train_resampled.shape}")
 # with open('../data/input.csv', mode='w', newline='', encoding='utf-8') as file: writer = csv.writer(file) 
 # writer.writerows(df3)
 
-# knn_classifier = KNeighborsClassifier()
-# param_knn = { 'n_neighbors': range(1, 30), 'weights': ['uniform', 'distance'], 'algorithm': ['auto', 'ball_tree', 'kd_tree'], 'leaf_size': range(10, 50, 5)} 
-# grid_search_knn = GridSearchCV(knn_classifier, param_knn, cv=5) 
-# grid_search_knn.fit(X_train_resampled, y_train_resampled) 
-# grid_search_knn.best_params_ 
-# best_gs_knn = grid_search_knn.best_estimator_ 
-# print('Score on train data = ', round(best_gs_knn.score(X_train_resampled, y_train_resampled), 4)) 
-# print('Score on test data = ', round(best_gs_knn.score(X_test, y_test), 4)) 
-# predictions = best_gs_knn.predict(X_test) 
-# # Báo cáo chi tiết 
+knn_classifier = KNeighborsClassifier(metric='euclidean')
+param_knn = { 'n_neighbors': range(1, 30), 'weights': ['uniform', 'distance'], 'algorithm': ['auto', 'ball_tree', 'kd_tree'], 'leaf_size': range(10, 50, 5)} 
+grid_search_knn = GridSearchCV(knn_classifier, param_knn, cv=5) 
+grid_search_knn.fit(X_train_resampled, y_train_resampled) 
+grid_search_knn.best_params_ 
+best_gs_knn = grid_search_knn.best_estimator_ 
+print('Score on train data = ', round(best_gs_knn.score(X_train_resampled, y_train_resampled), 4)) 
+print('Score on test data = ', round(best_gs_knn.score(X_test, y_test), 4)) 
+predictions = best_gs_knn.predict(X_test) 
+# Báo cáo chi tiết 
+print("\nBáo cáo phân loại:\n", classification_report(y_test, predictions)) 
+# Lấy 5 mẫu ngẫu nhiên từ tập test 
+sample_indices = X_test.sample(n=5).index 
+X_sample = X_test.loc[sample_indices] 
+y_actual = y_test.loc[sample_indices] 
+# Dự đoán nhãn từ mô hình 
+y_pred = best_gs_knn.predict(X_sample)
+# In kết quả so sánh 
+for i, idx in enumerate(sample_indices): 
+    print(f"Sample {i + 1}:") 
+    print(f" Input features: {X_sample.loc[idx].values}") 
+    print(f" Actual label: {y_actual.loc[idx]}") 
+    print(f" Predicted label: {y_pred[i]}")
+
+
+# logistic_regression = LogisticRegression(max_iter=1000) 
+# param_grid = { 'C': [0.01, 0.1, 1, 10, 100], 'solver': ['liblinear', 'saga'] } 
+# grid_search_lr = GridSearchCV(logistic_regression, param_grid, cv=5) 
+# grid_search_lr.fit(X_train_resampled, y_train_resampled) 
+# best_lr = grid_search_lr.best_estimator_ 
+# Đánh giá mô hình 
+# print('Score on train data = ', round(best_lr.score(X_train_resampled, y_train_resampled), 4)) 
+# print('Score on test data = ', round(best_lr.score(X_test, y_test), 4)) 
+# predictions = best_lr.predict(X_test) 
 # print("\nBáo cáo phân loại:\n", classification_report(y_test, predictions)) 
 # # Lấy 5 mẫu ngẫu nhiên từ tập test 
 # sample_indices = X_test.sample(n=5).index 
 # X_sample = X_test.loc[sample_indices] 
 # y_actual = y_test.loc[sample_indices] 
 # # Dự đoán nhãn từ mô hình 
-# y_pred = best_gs_knn.predict(X_sample)
+# y_pred = best_lr.predict(X_sample) 
 # # In kết quả so sánh 
 # for i, idx in enumerate(sample_indices): 
 #     print(f"Sample {i + 1}:") 
 #     print(f" Input features: {X_sample.loc[idx].values}") 
 #     print(f" Actual label: {y_actual.loc[idx]}") 
 #     print(f" Predicted label: {y_pred[i]}")
-svm_classifier = SVC() 
-param_grid = { 'C': [0.1, 1, 10, 100], 'gamma': [1, 0.1, 0.01, 0.001], 'kernel': ['linear', 'rbf', 'poly', 'sigmoid'] } 
-grid_search_svm = GridSearchCV(svm_classifier, param_grid, cv=5) 
-grid_search_svm.fit(X_train_resampled, y_train_resampled) 
-best_svm = grid_search_svm.best_estimator_ 
-# Đánh giá mô hình 
-print('Score on train data = ', round(best_svm.score(X_train_resampled, y_train_resampled), 4)) 
-print('Score on test data = ', round(best_svm.score(X_test, y_test), 4)) 
-predictions = best_svm.predict(X_test) 
-print("\nBáo cáo phân loại:\n", classification_report(y_test, predictions))
-#  # Lấy 5 mẫu ngẫu nhiên từ tập test 
-sample_indices = X_test.sample(n=5).index 
-X_sample = X_test.loc[sample_indices] 
-y_actual = y_test.loc[sample_indices] 
-# # Dự đoán nhãn từ mô hình 
-y_pred = best_svm.predict(X_sample) 
-# # In kết quả so sánh 
-for i, idx in enumerate(sample_indices): 
-    print(f"Sample {i + 1}:") 
-    print(f" Input features: {X_sample.loc[idx].values}") 
-    print(f" Actual label: {y_actual.loc[idx]}") 
-    print(f" Predicted label: {y_pred[i]}")
